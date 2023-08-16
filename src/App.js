@@ -1,22 +1,20 @@
+import { Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
-import ImageSlider from './components/ImageSlider';
 import Navbar from './components/Navbar';
-import Offers from './components/Offers';
-import Plan from './components/Plan';
-import Rooms from './components/Rooms';
+import Home from './pages/Home';
+import ListCards from './pages/ListCards';
+import requests from './services/Requests';
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
-      <Hero />
-      <Offers />
-      <Plan />
-      <Rooms />
-      <ImageSlider />
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/ListCards' element={<ListCards fetchURL={requests.cardsDetails}/>}/>
+      </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 
