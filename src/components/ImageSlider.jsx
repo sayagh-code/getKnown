@@ -10,7 +10,7 @@ const ImageSlider = ({fetchURL}) => {
 
     useEffect(()=>{
         axios.get(fetchURL).then((response)=>{
-            let cards = response.data.result.filter((card)=> card.banniere !== 'https://ilyas.serveurproduction.xyz/uploads/icons/')
+            let cards = response.data.result.filter((card)=> card.banniere !== 'https://ilyas.serveurproduction.xyz/uploads/icons/logo.png')
             setSlides(cards);
             console.log(cards);
         })
