@@ -1,42 +1,45 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom';
 
-const ListCards = ({fetchURL}) => {
+const CardsByType = ({fetchURL}) => {
 
-  const [list, setList] = useState([]);
+    const [list, setList] = useState([]);
 
-  const [page, setPage] = useState(0);
+    const [page, setPage] = useState(0);
 
-  useEffect(()=>{
-    axios.get(fetchURL).then((response)=>{
-      let l=response.data.result.filter((data)=> data.company !== '');
-      setList(l);
-    });
-  },[fetchURL])
+    const params = useParams();
 
-  const slideLeft = () =>{
-    var slider = document.getElementById('slider')
-    slider.scrollLeft = slider.scrollLeft - 175;
-}
+    useEffect(()=>{
+        axios.get(`${fetchURL}/${params.type}`).then((response)=>{
+            let l=response.data.result.filter((data)=> data.company !== '');
+            console.log(l);
+            setList(l);
+        });
+    },[fetchURL, params.type])
 
-const slideRight = () =>{
-    var slider = document.getElementById('slider')
-    slider.scrollLeft = slider.scrollLeft + 175;
-}
-
-  const pages = () => {
-    const p = [];
-    for (let i = 0; i < Math.ceil(list.length/10); i++) {
-        p.push(i + 1);
+    const slideLeft = () =>{
+        var slider = document.getElementById('slider')
+        slider.scrollLeft = slider.scrollLeft - 175;
     }
-    return p;
-  }
 
-  function changePage(index) {
-    setPage(index);
-  }
+    const slideRight = () =>{
+        var slider = document.getElementById('slider')
+        slider.scrollLeft = slider.scrollLeft + 175;
+    }
+
+    const pages = () => {
+        const p = [];
+        for (let i = 0; i < Math.ceil(list.length/10); i++) {
+            p.push(i + 1);
+        }
+        return p;
+    }
+
+    function changePage(index) {
+        setPage(index);
+    }
 
   return (
     <>
@@ -63,4 +66,4 @@ const slideRight = () =>{
   )
 }
 
-export default ListCards
+export default CardsByType

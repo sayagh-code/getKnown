@@ -26,11 +26,17 @@ const Navbar = () => {
               <li className='font-bold  text-3xl p-8'>Home</li>
             </Link>
             <Link to='/ListCards' onClick={handleNav}>
-            <li className='font-bold  text-3xl p-8'>List Cards</li>
+              <li className='font-bold  text-3xl p-8'>List Cards</li>
             </Link>
-            <li className='font-bold  text-3xl p-8'>Reservations</li>
-            <li className='font-bold  text-3xl p-8'>Amentities</li>
-            <li className='font-bold  text-3xl p-8'>Rooms</li>
+            <Link to='/CardsByType/Seller' onClick={handleNav}>
+              <li className='font-bold  text-3xl p-8'>Sellers</li>
+            </Link>
+            <Link to='/CardsByType/Company' onClick={handleNav}>
+              <li className='font-bold  text-3xl p-8'>Companies</li>
+            </Link>
+            <Link to='/CardsByType/Hotel' onClick={handleNav}>
+              <li className='font-bold  text-3xl p-8'>Hotels</li>
+            </Link>
           </ul>
         </div>
     </div>
