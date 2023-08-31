@@ -12,11 +12,11 @@ const Plan = () => {
       </div>
       <div className='flex flex-col h-full justify-center'>
         <h3 className='text-5xl md:text-6xl font-bold'>Fascinate Your Customer</h3>
-        <p className='text-2xl py-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, itaque?</p>
-        <p className='pb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quo dolore et earum!</p>
+        <p className='text-2xl py-6'>Engage with your surroundings through the use of NFC technology, enabling seamless interaction with the environment around you.</p>
+        <p className='pb-6'>Unlock Exclusive Hotel Benefits: Craft custom NFC cards to provide guests effortless access to their rooms.</p>
         <div>
           <button className='border-black mr-4 hover:shadow-xl'>Learn More</button>
-          <button className='bg-black text-white border-black hover:shadow-xl'>Book Your Trip</button>
+          <button className='bg-black text-white border-black hover:shadow-xl'>Download Now</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import{ FaFacebook, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa';
 
 const CardDetails = ({fetchURL}) => {
@@ -56,7 +56,8 @@ const CardDetails = ({fetchURL}) => {
                         {
                             cardDetails.site ? (
                                 <p className='text-gray-700'>
-                                    <span className='font-semibold'>Website:</span> <a href={cardDetails.site} className='text-blue-500 hover:underline' target='_blank' rel='noopener noreferrer'>{cardDetails.site}</a>
+                                    <span className='font-semibold'>Website: </span> 
+                                    <a href={cardDetails.site} className='text-blue-500 hover:underline' target='_blank' rel='noopener noreferrer'>{cardDetails.site}</a>
                                 </p>
                             ) : ('')
                         }
@@ -64,30 +65,30 @@ const CardDetails = ({fetchURL}) => {
                         <div className='max-w-[900px] pr-5 flex flex-wrap justify-around mb-5 md:mb-0'>
                             {   
                                 cardDetails.facebook ? (
-                                    <p className='flex mx-1 py-1'>
+                                    <Link className='flex mx-1 py-1' target="_blank" to={`https://www.facebook.com/${cardDetails.facebook}`}>
                                         <FaFacebook size={25} color='#056fe5' className='mr-1'/>{cardDetails.facebook}
-                                    </p>
+                                    </Link>
                                 ) : ('')
                             }
                             {
                                 cardDetails.instagram ? (
-                                    <p className='flex mx-1 py-1'>
+                                    <Link className='flex mx-1 py-1' target="_blank" to={`https://www.instagram.com/${cardDetails.instagram}`}>
                                         <FaInstagram size={25} color='#fe0101' className='mr-1'/>{cardDetails.instagram}
-                                    </p>
+                                    </Link>
                                 ) : ('')
                             }
                             {
                                 cardDetails.youtube ? (
-                                    <p className='flex mx-1 py-1'>
+                                    <Link className='flex mx-1 py-1' target="_blank" to={`https://www.youtube.com/user/${cardDetails.youtube}`}>
                                         <FaYoutube size={25} color='#fe0101' className='mr-1'/>{cardDetails.youtube}
-                                    </p>
+                                    </Link>
                                 ) : ('')
                             }
                             {
                                 cardDetails.linkedin ? (
-                                    <p className='flex mx-1 py-1'>
+                                    <Link className='flex mx-1 py-1' target="_blank" to={`https://www.linkedin.com/in/${cardDetails.linkedin}`}>
                                         <FaLinkedinIn size={23} color='#006bac' className='mr-1'/>{cardDetails.linkedin}
-                                    </p>
+                                    </Link>
                                 ) : ('')
                             }
                             </div>
